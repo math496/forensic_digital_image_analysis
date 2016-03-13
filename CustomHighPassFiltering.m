@@ -13,11 +13,12 @@ end
 
 imageResult = image;
 
-j = 0;
+j = 1;
 w = waitbar(0);
 while j < m
     % Wait to know ETA
     waitbar(j/m, w, 'Wait...');
+    i = 1;
     while i < n
         % Counter in spec. cases where mask
         % is not with 9px => edges
@@ -38,7 +39,7 @@ while j < m
         end
         
         % Top px
-        if ( j_minus_1 < 1 || i_plus_1 < 1 )
+        if ( j_minus_1 < 1 )
             image2 = 0;
         else
             image2 = -2*image( j-1, i );
@@ -62,11 +63,11 @@ while j < m
         end
         
         % Center pixel
-        image5 = -2*image( j, i );
+        image5 = 12*image( j, i );
         counter = counter + 1;
         
         % Right pixel
-        if i_plus_1 < 1
+        if ( i_plus_1 < 1 )
             image6 = 0;
         else
             image6 = -2*image( j, i+1 );
@@ -82,7 +83,7 @@ while j < m
         end
         
         % Bottom pixel
-        if j_plus_1 < 1
+        if ( j_plus_1 < 1 )
             image8 = 0;
         else
             image8 = -2*image( j+1, i);
@@ -90,7 +91,7 @@ while j < m
         end
         
         % Bottom right pixel
-        if j_plus_1 < 1 || i_plus_1 < 1 
+        if ( j_plus_1 < 1 || i_plus_1 < 1 )
             image9 = 0;
         else
             image9 = -1*image( j+1, i+1 );

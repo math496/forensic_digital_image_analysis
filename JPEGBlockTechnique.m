@@ -52,14 +52,14 @@ while 8*j < m
         diffud = abs( image( 8*j, 8*i ) - ...
                       image( 8*i + 1, 8*i ));
         
-        if difflr >= thresh || diffud >= thresh
+        if ((difflr >= thresh) || (diffud >= thresh ))
             
-            % set all px to white
+            % set all px in block to white
             a = 8*(j-1) + 1;
             while a <= 8*j
                 b = 8*(i-1) + 1;
                 while b <= 8*i
-                    image( a, b ) = 255
+                    image( a, b ) = 255;
                     b = b + 1;
                 end
                 a = a + 1;
@@ -109,7 +109,7 @@ while a <= m
         image( a, 8*(i-1) + b ) = 0;
         b = b + 1;
     end
-    a = a + 1
+    a = a + 1;
 end
 
 % Clean up next to last row
